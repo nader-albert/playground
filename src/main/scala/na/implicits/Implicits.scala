@@ -56,11 +56,11 @@ class Implicits {
      * The syntactic sugar version for it, called a context bound, which is made less useful by the need to refer to the implicit.
      * A straight conversion of that method looks like this:
      * */
-    def sum[T : Integral](list: List[T]): T = {
+    /*def sum[T : Integral](list: List[T]): T = {
         val integral = implicitly[Integral[T]]
         import integral._   // get the implicits in question into scope
         list.foldLeft(integral.zero)(_ + _)
-    }
+    }*/
 
 }
 

@@ -1,7 +1,7 @@
 package na.generics
 
-import scala.reflect.runtime.universe
 import scala.reflect.runtime.universe._
+
 import scala.reflect.{ClassTag, classTag}
 
 /**
@@ -27,7 +27,7 @@ class Reflection {
     def createArray[A: ClassTag](seq: A*): Array[A] = Array[A](seq: _*)
 
     /**
-     * ClassTag provides only the information needed to create types at runtime. If we ask for runtime class of List[Int],
+     * ClassTag provides only the information needed to create types at runtime. I  f we ask for runtime class of List[Int],
      * we can see that information about Int that the list is parametrised with is lost i.e. they don’t care about type erasure.
      */
     def checkType[A: ClassTag](a: A): Class[_] = {
@@ -70,7 +70,7 @@ object Reflection extends App {
     println(test.checkWithTypeTag(Int))
     println(test.checkWithTypeTag(new String))
 
-    val k: universe.Type = test.checkWithTypeTag(List[String]())
+    val k: Type = test.checkWithTypeTag(List[String]())
 
     println(k.decls.take(10))
 
